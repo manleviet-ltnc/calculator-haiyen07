@@ -95,7 +95,8 @@ namespace calculator
                 case'7':
                 case'8':
                 case'9':
-                    NhapSo("" + e.KeyChar);
+                    if (!lblDisplay.Text.Equals("0"))
+                        NhapSo("" + e.KeyChar);
                     break;
                 case '+':
                     btnCong.PerformClick();
@@ -131,5 +132,16 @@ namespace calculator
         {
             lblDisplay.Text = ((double.Parse(lblDisplay.Text) / 100)).ToString();
         }
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            if (lblDisplay.Text.Length > 0)
+                lblDisplay.Text = lblDisplay.Text.Remove(lblDisplay.Text.Length - 1, 1);
+        }
+        private void btnNho_Click(object sender, EventArgs e)
+        {
+            nho = 0;
+            lblDisplay.ResetText();
+        }
     }
+
 }
