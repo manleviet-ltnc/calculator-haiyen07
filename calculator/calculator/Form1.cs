@@ -19,6 +19,7 @@ namespace calculator
 
 
         bool isTypingNumber = false;
+        bool haveDecimalPoint = false;
 
         enum PhepToan { Cong, Tru, Nhan, Chia };
         PhepToan pheptoan;
@@ -27,10 +28,19 @@ namespace calculator
         private void NhapSo (object sender, EventArgs e)
         {
             Button btn = (Button)sender;
-            NhapSo(btn.Text);
+            NhapSo(btn.Text);  
         }
         private void NhapSo(string so)
         {
+            if (lblDisplay.Text[0] == '0' && !lblDisplay.Text.Equals("0."))
+            {
+                isTypingNumber = false;
+                haveDecimalPoint = false;
+            }
+
+            if (lblDisplay.Text.Equals("0") && so.Equals("0"))
+                return;
+
             if (isTypingNumber)
                 lblDisplay.Text = lblDisplay.Text + so;
             else
@@ -56,6 +66,7 @@ namespace calculator
             nho = double.Parse(lblDisplay.Text);
 
             isTypingNumber = false;
+            haveDecimalPoint = false;
         }
 
         private void TinhKetQua()
@@ -86,15 +97,15 @@ namespace calculator
             switch(e.KeyChar)
             {
                 case '0':
-                case'1':
-                case'2':
-                case'3':
-                case'4':
-                case'5':
-                case'6':
-                case'7':
-                case'8':
-                case'9':
+                case '1':
+                case '2':
+                case '3':
+                case '4':
+                case '5':
+                case '6':
+                case '7':
+                case '8':
+                case '9':
                     if (!lblDisplay.Text.Equals("0"))
                         NhapSo("" + e.KeyChar);
                     break;
@@ -112,6 +123,9 @@ namespace calculator
                     break;
                 case '=':
                     btnBang.PerformClick();
+                    break;
+                case '.':
+                    btnThapPhan.PerformClick();
                     break;
                 default:
                     break;
@@ -140,7 +154,19 @@ namespace calculator
         private void btnNho_Click(object sender, EventArgs e)
         {
             nho = 0;
-            lblDisplay.ResetText();
+            lblDisplay.Text= "0";
+            isTypingNumber = false;
+            haveDecimalPoint = false;
+        }
+
+        private void btnThapPhan_Click(object sender, EventArgs e)
+        {
+            if (!haveDecimalPoint)
+            {
+                lblDisplay.Text = lblDisplay.Text + ".";
+                isTypingNumber = true;
+                haveDecimalPoint = true;
+            }
         }
     }
 

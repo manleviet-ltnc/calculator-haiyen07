@@ -61,7 +61,7 @@
             this.lblDisplay.Name = "lblDisplay";
             this.lblDisplay.Size = new System.Drawing.Size(199, 23);
             this.lblDisplay.TabIndex = 0;
-            this.lblDisplay.Text = "0.";
+            this.lblDisplay.Text = "0";
             this.lblDisplay.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // btn0
@@ -95,6 +95,7 @@
             this.btnDoiDau.TabIndex = 17;
             this.btnDoiDau.Text = "-/+";
             this.btnDoiDau.UseVisualStyleBackColor = true;
+            this.btnDoiDau.Click += new System.EventHandler(this.btnDoiDau_Click);
             // 
             // btnThapPhan
             // 
@@ -105,6 +106,7 @@
             this.btnThapPhan.TabIndex = 19;
             this.btnThapPhan.Text = ".";
             this.btnThapPhan.UseVisualStyleBackColor = true;
+            this.btnThapPhan.Click += new System.EventHandler(this.btnThapPhan_Click);
             // 
             // btn3
             // 
@@ -280,6 +282,7 @@
             this.btnNho.TabIndex = 1;
             this.btnNho.Text = "C";
             this.btnNho.UseVisualStyleBackColor = true;
+            this.btnNho.Click += new System.EventHandler(this.btnNho_Click);
             // 
             // btnXoa
             // 
@@ -290,6 +293,7 @@
             this.btnXoa.TabIndex = 2;
             this.btnXoa.Text = "Backspace";
             this.btnXoa.UseVisualStyleBackColor = true;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // frmMain
             // 
