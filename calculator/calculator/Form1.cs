@@ -32,7 +32,7 @@ namespace calculator
         }
         private void NhapSo(string so)
         {
-            if (lblDisplay.Text[0] == '0' && !lblDisplay.Text.Equals("0."))
+            if (lblDisplay.Text[0] == '0' && !lblDisplay.Text.Equals("0.") && lblDisplay.Text.Length <1)
             {
                 isTypingNumber = false;
                 haveDecimalPoint = false;
